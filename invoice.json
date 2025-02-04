@@ -1,0 +1,53 @@
+{
+  "requestor_details": {
+    "name": "John Doe",
+    "department": "Procurement Team",
+    "reason": "New Vendor Registration & Raw Material Order",
+    "domain": "Manufacturing"
+  },
+  "identifying_information": {
+    "supplier_name": "ABC Suppliers Pvt. Ltd.",
+    "gstin_number": "27ABCDE1234F1Z5",
+    "gst_rate": "18%",
+    "address": {
+      "street_address": "123 Industrial Area",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "postal_code": "400001",
+      "country_code": "+91"
+    },
+    "contact": {
+      "name": "Mr. Rajesh Verma",
+      "email_id": "contact@abcsuppliers.com",
+      "email_id_finance": "finance@abcsuppliers.com",
+      "phone_number": "9876543210"
+    },
+    "pan_no": "ABCDE1234F",
+    "msme_registration_no": "12345678",
+    "hsn_sac_code": "7207",
+    "supplier_type": "Raw Material Vendor"
+  },
+  "local_vendor_account_information": {
+    "beneficiary_account_name": "ABC Suppliers Pvt. Ltd.",
+    "payment_currency": "INR",
+    "bank_name": "HDFC Bank",
+    "ifsc_code": "HDFC0000123",
+    "account_type": "Current",
+    "beneficiary_account_number": "123456789012",
+    "bank_routing_method": "NEFT/RTGS",
+    "remittance_email": "payments@abcsuppliers.com"
+  },
+  "foreign_currency_vendor_account_information": {
+    "beneficiary_account_name": "XYZ Suppliers Pvt. Ltd.",
+    "payment_currency": "USD",
+    "bank_name": "Citibank NA",
+    "account_type": "Business",
+    "swift_code": "CITIUS33",
+    "iban_no": "US1234567890",
+    "bank_routing_method": "SWIFT",
+    "intermediary_bank_routing_method": "SWIFT",
+    "intermediary_swift_no": "INTERUS33",
+    "intermediary_bank_name": "JPMorgan Chase",
+    "remittance_email": "finance@abcsuppliers.com"
+  }
+}

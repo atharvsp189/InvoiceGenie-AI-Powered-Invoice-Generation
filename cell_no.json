@@ -1,0 +1,60 @@
+{
+    "requestor_details": {
+      "name": "17D",
+      "department": "17D",
+      "date": "18J",
+      "reason": null,
+      "domain": null
+    },
+    "identifying_information": {
+      "supplier_name": "24D",
+      "gstin_number": "25D",
+      "gst_rate": "26D",
+      "address": {
+        "street_address": "27D",
+        "city": "29J",
+        "state": "29D",
+        "postal_code": "30J",
+        "country_code": null
+      },
+      "contact": {
+        "name": "28J",
+        "email_id": "30D",
+        "email_id_finance": null,
+        "phone_number": null
+      },
+      "pan_no": "27J",
+      "msme_registration_no": "26J",
+      "hsn_sac_code": "32D",
+      "supplier_type": "32J",
+      "gl_allocation": "31D",
+      "cost_center": "31J"
+    },
+    "local_vendor_account_information": {
+      "beneficiary_account_name": "44C",
+      "payment_currency": "45C",
+      "bank_name": "46C",
+      "ifsc_code": "37I",
+      "account_type": "47C",
+      "beneficiary_account_number": "38I",
+      "bank_routing_method": "49C",
+      "remittance_email": "50C",
+      "payment_credit_term": "36I",
+      "bsb_branch_code": "48C"
+    },
+    "foreign_currency_vendor_account_information": {
+      "beneficiary_account_name": "44C",
+      "payment_currency": "45C",
+      "bank_name": "46C",
+      "account_type": "46E",
+      "swift_code": "47C",
+      "iban_no": "48I",
+      "beneficiary_account_number": "48C",
+      "bank_routing_method": "49C",
+      "intermediary_bank_routing_method": "50C",
+      "intermediary_swift_no": "51C",
+      "intermediary_bank_name": "52C",
+      "remittance_email": "48D",
+      "payment_term": "45I"
+    }
+  }
