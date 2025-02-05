@@ -21,10 +21,15 @@ with open('cell_no.json') as cell:
 #         else:
 #             print(j)
 
+
 for val in invoice:
     for j in invoice[val]:
         if isinstance(invoice[val][j], dict):
             for k in invoice[val][j]:
-                print(k, " ", invoice[val][j][k], cell[val][j][k])
+                cell_no = cell[val][j][k]
+                value = invoice[val][j][k]
+                print(k, " ", value, cell_no)
         else:
-            print(j, " ", invoice[val][j], cell[val][j])
+            cell_no = cell[val][j]
+            value = invoice[val][j]
+            print(j, " ", value, cell_no)

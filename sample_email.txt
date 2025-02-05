@@ -1,0 +1,105 @@
+Sample Mail:
+
+Subject: Purchase Order for Raw Materials – ABC
+
+Dear ABC,
+
+I hope this email finds you well. We are reaching out to place an order for raw materials and require the necessary details for vendor registration. Kindly find the order details and required information below:
+
+Requestor’s Details:
+
+Requestor’s Name & Department: John Doe, Procurement Team
+
+Reason: New Vendor Registration & Raw Material Order
+
+Domain: Manufacturing
+
+Identifying Information:
+
+Supplier Name: ABC Suppliers Pvt. Ltd.
+
+GSTIN Number/Tax Registration No.: 27ABCDE1234F1Z5
+
+GST Rate: 18%
+
+Address: 123 Industrial Area, Mumbai, Maharashtra, India
+
+State: Maharashtra
+
+City: Mumbai
+
+Postal Code: 400001
+
+Country Code/Contact No.: +91 9876543210
+
+Contact Person Name: Mr. Rajesh Verma
+
+Email ID: contact@abcsuppliers.com
+
+Email ID Finance: finance@abcsuppliers.com
+
+PAN No. (For India only): ABCDE1234F
+
+MSME Registration No. (For India only): 12345678
+
+HSN/SAC Code (For India only): 7207
+
+GL Allocation: Manufacturing Cost
+
+Sub A/c: Raw Material Expenses
+
+Cost Center: Production Unit 1
+
+Supplier Type: Raw Material Vendor
+
+Local Vendor Account Information:
+
+Beneficiary Account Name: ABC Suppliers Pvt. Ltd.
+
+Payment Currency: INR
+
+Bank Name: HDFC Bank
+
+IFSC Code/Swift Code: HDFC0000123
+
+Account Type: Current
+
+Beneficiary Account No.: 123456789012
+
+BSB Number/Branch Code (For Local Vendors): 01234
+
+Beneficiary Bank Routing Method: NEFT/RTGS
+
+Remittance Email: payments@abcsuppliers.com
+
+Foreign Currency Vendor Account Information (If applicable):
+
+Beneficiary Account Name: ABC Suppliers Pvt. Ltd.
+
+Payment Currency: USD
+
+Bank Name: Citibank NA
+
+Acct Type: Business
+
+Swift Code: CITIUS33
+
+IBAN No./Bank Account: US1234567890
+
+Beneficiary Bank Routing Method: SWIFT
+
+Intermediary Bank Routing Method: SWIFT
+
+Intermediary SWIFT No.: INTERUS33
+
+Intermediary Bank Name: JPMorgan Chase
+
+Remittance Email: finance@abcsuppliers.com
+
+Please confirm the receipt of this order and share the estimated delivery schedule at your earliest convenience. Additionally, we request you to send a copy of the invoice and banking details on the company letterhead for verification.
+
+For any clarifications, feel free to contact me at [Your Email] or +91 9876543210.
+
+Looking forward to your prompt response.
+
+Best regards,John DoeProcurement TeamXYZ Manufacturing Pvt. Ltd.Email: john.doe@xyzmanufacturing.comPhone: +91 9876543210

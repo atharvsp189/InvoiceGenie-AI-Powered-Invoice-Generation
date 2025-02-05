@@ -8,6 +8,9 @@ import json
 import streamlit as st
 from pprint import pprint
 
+import win32com.client
+import openpyxl
+
 st.set_page_config(page_title="Invoice-Exctarctor")
 st.header("Invoices Extractor")
 
@@ -31,7 +34,7 @@ parser = JsonOutputParser(pydantic_object={
 })
 
 prompt = ChatPromptTemplate.from_messages([
-    ("system", """You are a helpful assistant which helps to extract the order details from email and turn it into a JSON file. Extract invoice details such as name, address, city, order value, etc., and give it in a JSON file. Keep the output structure as this only.
+    ("system", """You are a helpful assistant which helps to extract the order details from email and turn it into a JSON file. Extract response details such as name, address, city, order value, etc., and give it in a JSON file. Keep the output structure as this only.
 
     <output_keys>
         requestor_details.name
@@ -95,109 +98,67 @@ if submit:
     pprint(response)
     # st.json(response, expanded=True)
     st.json(response)
+    
 
 
-# Example Email
-# Subject: Purchase Order for Raw Materials – ABC Suppliers Pvt. Ltd
+    # with open('response.json') as invoicejson:
+    #     response = json.load(invoicejson)
+    # response = json.load(response)
 
-# Dear XYZ,
+    with open('cell_no.json') as cell:
+        cell = json.load(cell)
 
-# I hope this email finds you well. We are reaching out to place an order for raw materials and require the necessary details for vendor registration. Kindly find the order details and required information below:
 
-# Requestor’s Details:
+    wb = openpyxl.load_workbook("excel_file/Supplier_Form.xlsx")
+    ws = wb.active # First Sheet
 
-# Requestor’s Name & Department: John Doe, Procurement Team
 
-# Reason: New Vendor Registration & Raw Material Order
+    print('Total number of rows: '+str(ws.max_row)+'. And total number of columns: '+str(ws.max_column))
 
-# Domain: Manufacturing
+    print('The value in cell B10 is: ', ws['B10'].value)
 
-# Identifying Information:
 
-# Supplier Name: ABC Suppliers Pvt. Ltd.
+    for val in response:
+        for j in response[val]:
+            if isinstance(response[val][j], dict):
+                for k in response[val][j]:
+                    cell_no = cell[val][j][k]
+                    value = response[val][j][k]
+                    print(k, " ", value, cell_no)
+                    if ws[cell_no].value is None:
+                        ws[cell_no].value = value
+                    else:
+                        ws[cell_no].value += value
+            else:
+                cell_no = cell[val][j]
+                value = response[val][j]
+                print(j, " ", value, cell_no)
+                if ws[cell_no].value is None:
+                    ws[cell_no].value = value
+                else:
+                    ws[cell_no].value += value
 
-# GSTIN Number/Tax Registration No.: 27ABCDE1234F1Z5
 
-# GST Rate: 18%
+    print(ws["D17"].value)
+    print(ws["C47"].value)
+    print(ws["E46"].value)
 
-# Address: 123 Industrial Area, Mumbai, Maharashtra, India
+    wb.save("Supplier.xlsx")
+    wb.close()
 
-# State: Maharashtra
+    # Open Excel Application
+    excel = win32com.client.Dispatch("Excel.Application")
+    excel.Visible = False  # Run in background
 
-# City: Mumbai
+    # Open Workbook
+    wb = excel.Workbooks.Open(r"D:/Playground/Invoices-Extraction/Supplier.xlsx")
 
-# Postal Code: 400001
+    # Export as PDF (change path as needed)
+    pdf_path = r"D:/Playground/Invoices-Extraction/PDF/upplier.pdf"
+    wb.ExportAsFixedFormat(0, pdf_path)
 
-# Country Code/Contact No.: +91 9876543210
+    # Close Workbook and Quit Excel
+    wb.Close(False)
+    excel.Quit()
 
-# Contact Person Name: Mr. Rajesh Verma
-
-# Email ID: contact@abcsuppliers.com
-
-# Email ID Finance: finance@abcsuppliers.com
-
-# PAN No. (For India only): ABCDE1234F
-
-# MSME Registration No. (For India only): 12345678
-
-# HSN/SAC Code (For India only): 7207
-
-# GL Allocation: Manufacturing Cost
-
-# Sub A/c: Raw Material Expenses
-
-# Cost Center: Production Unit 1
-
-# Supplier Type: Raw Material Vendor
-
-# Local Vendor Account Information:
-
-# Beneficiary Account Name: ABC Suppliers Pvt. Ltd.
-
-# Payment Currency: INR
-
-# Bank Name: HDFC Bank
-
-# IFSC Code/Swift Code: HDFC0000123
-
-# Account Type: Current
-
-# Beneficiary Account No.: 123456789012
-
-# BSB Number/Branch Code (For Local Vendors): 01234
-
-# Beneficiary Bank Routing Method: NEFT/RTGS
-
-# Remittance Email: payments@abcsuppliers.com
-
-# Foreign Currency Vendor Account Information (If applicable):
-
-# Beneficiary Account Name: XYZ Suppliers Pvt. Ltd.
-
-# Payment Currency: USD
-
-# Bank Name: Citibank NA
-
-# Acct Type: Business
-
-# Swift Code: CITIUS33
-
-# IBAN No./Bank Account: US1234567890
-
-# Beneficiary Bank Routing Method: SWIFT
-
-# Intermediary Bank Routing Method: SWIFT
-
-# Intermediary SWIFT No.: INTERUS33
-
-# Intermediary Bank Name: JPMorgan Chase
-
-# Remittance Email: finance@abcsuppliers.com
-
-# Please confirm the receipt of this order and share the estimated delivery schedule at your earliest convenience. Additionally, we request you to send a copy of the invoice and banking details on the company letterhead for verification.
-
-# For any clarifications, feel free to contact me at [Your Email] or +91 9876543210.
-
-# Looking forward to your prompt response.
-
-# Best regards,John DoeProcurement TeamXYZ Manufacturing Pvt. Ltd.Email: john.doe@xyzmanufacturing.comPhone: +91 9876543210
+    print(f"Excel file converted to PDF: {pdf_path}")
